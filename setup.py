@@ -3,16 +3,26 @@ import sys, os
 
 version = '0.1'
 
-setup(name='dpvt',
+setup(name='django-fab-templates',
       version=version,
-      description="Django project templates that support deployment to vagrant-managed virtual box",
-      classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
-      keywords='django fabric vagrant',
+      description="Django project templates that support fabric-style deployment (vagrant+ubuntu, webfaction)",
+      classifiers=[
+        "Programming Language :: Python",
+        "Development Status :: 3 - Alpha",
+        "Environment :: Console",
+        "Framework :: Django",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        "Topic :: Software Development :: Code Generators",
+        ], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
+      keywords=['django', 'fabric', 'vagrant', 'template', 'project', 'html5', 'boilerplate', 'vm', 'virtualbox'],
       author='Dmitry Guyvoronsky',
       author_email='dmitry.guyvoronsky@gmail.com',
-      url='http://demiurg.com.ua/dpvt',
+      url='',
       license='MIT',
-      packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
+      packages=find_packages(),
       include_package_data=True,
       zip_safe=False,
       install_requires=[
@@ -22,6 +32,6 @@ setup(name='dpvt',
       ],
       entry_points="""
       [paste.paster_create_template]
-      vagrant_project=dpvt.pastertemplates:VagrantTemplate
+      vagrant_project=src.pastertemplates:VagrantTemplate
       """,
       )
