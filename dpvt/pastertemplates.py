@@ -36,5 +36,6 @@ class VagrantTemplate(DjangoTemplate):
     
     def __init__(self, name):
         append_secret_key(self.vars)
+        append_db_password(self.vars)
         super(VagrantTemplate, self).__init__(name)
         

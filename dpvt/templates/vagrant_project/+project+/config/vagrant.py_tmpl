@@ -1,0 +1,13 @@
+
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': 'localhost',
+        'NAME': '$(project)',                  
+        'USER': '$(project)',
+        'PASSWORD': '$(db_password)',
+    }
+}

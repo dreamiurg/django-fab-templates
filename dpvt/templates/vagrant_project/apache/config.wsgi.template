@@ -1,0 +1,46 @@
+import os
+import sys
+
+repo_path = '{{ repo_path }}'
+code_path = '{{ code_path }}'
+
+# if this file exists, we're in upgrade mode
+upgrade_lock_filename = '.upgrading'
+# show content of this file to user when in upgrade mode
+upgrade_html_filename = 'upgrading.html'
+
+
+def upgrade_in_progress(environ, start_response):
+    """
+    Will display 'We're updating the site' page
+    """
+    # show upgrade page, if exists
+    upgrade_html_page = os.path.join(repo_path, upgrade_html_filename)
+    if os.path.exists(upgrade_html_page):
+        response_headers = [('Content-type','text/html')]
+        response = open(upgrade_html_page).read()
+    
+    # otherwise just show maintenance message
+    else:
+        response_headers = [('Content-type','text/plain')]
+        response = 'Application upgrade in progress...please check back soon.'
+        
+    # only allow GET method
+    if environ['REQUEST_METHOD'] == 'GET':
+        status = '503 Service Unavailable'
+    else:
+        status = '405 Method Not Allowed'
+    start_response(status, response_headers)
+    return [response]
+
+if os.path.exists(os.path.join(repo_path, upgrade_lock_filename)):
+    application = upgrade_in_progress
+else:
+    sys.path.insert(0, repo_path)
+    sys.path.insert(0, code_path)
+    
+    os.environ['FLAVOR'] = '{{ settings }}'
+    os.environ['DJANGO_SETTINGS_MODULE'] = '{{ project_name }}.settings'
+
+    import django.core.handlers.wsgi
+    application = django.core.handlers.wsgi.WSGIHandler()
