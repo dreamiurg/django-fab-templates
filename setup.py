@@ -22,5 +22,6 @@ setup(name='dpvt',
       ],
       entry_points="""
       [paste.paster_create_template]
+      vagrant_project=dpvt.pastertemplates:VagrantTemplate
       """,
       )
