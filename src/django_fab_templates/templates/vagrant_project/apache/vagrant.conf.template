@@ -1,0 +1,16 @@
+WSGIDaemonProcess {{ project_name }} user=vagrant group=vagrant processes=5 python-path={{ env_path }}/lib/{{ python }}/site-packages threads=1
+WSGIProcessGroup {{ project_name }}
+WSGIPythonPath {{ env_path }}/lib/{{ python }}/site-packages:{{ code_path }}
+
+<VirtualHost *:80>
+        ServerAdmin admin@email.com
+                
+        LogLevel info
+        CustomLog /var/log/apache2/access_{{ project_name }}.log combined
+        ErrorLog /var/log/apache2/error_{{ project_name }}.log 
+        ServerSignature On
+                
+        WSGIScriptAlias / /etc/apache2/sites-available/{{ project_name }}.wsgi
+
+</VirtualHost>
+
