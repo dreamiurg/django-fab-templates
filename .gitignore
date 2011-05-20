@@ -1,5 +1,5 @@
 *.pyc
 .DS_Store
-dpvt.egg-info
+*.egg-info
 build
 dist
