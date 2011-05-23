@@ -98,24 +98,6 @@ def vagrant():
     env.user = vagrant_config['User']
     
     _set_vagrant_env()
-
-
-# -----------------------------------------------------------------------------
-# Branches
-# -----------------------------------------------------------------------------
-
-def master():
-    """
-    Work on master branch.
-    """
-    env.branch = 'master'
-
-def branch(branch_name):
-    """
-    Work on any specified branch.
-    """
-    env.branch = branch_name
-
     
 # -----------------------------------------------------------------------------
 # Main commands

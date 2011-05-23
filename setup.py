@@ -31,6 +31,8 @@ setup(name = 'django-fab-templates',
         'setuptools',
         'PasteScript>=1.3',
         'Cheetah',
+        'Fabric>=0.9.5',
+        'jinja2',
       ],
       entry_points = """
       [paste.paster_create_template]
