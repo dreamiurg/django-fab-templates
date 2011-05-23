@@ -1,1 +1,2 @@
+include *.rst AUTHORS LICENSE CHANGELOG
 recursive-include src/django_fab_templates/templates *
