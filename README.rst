@@ -1,28 +1,30 @@
 django-fab-templates is set of start templates for Django projects. All of these templates support automated Django project deployment with help of `Fabric`_. Feel free to use them as is or tweak them to fit your needs.
 
-Many thanks to
+Kudos to:
 
 * Gareth Rushgrove and his `django-project-templates`_ for inspiration
 * Colin Copeland for his introduction to `basic Django deployment with virtualenv, fabric, pip and rsync <http://www.caktusgroup.com/blog/2010/04/22/basic-django-deployment-with-virtualenv-fabric-pip-and-rsync/>`_
 
-Please report bugs or suggest improvements to dmitry.guyvoronky@gmail.com or submit them as `GitHub issues <https://github.com/dreamiurg/django-fab-templates/issues>`_.
+Please submit bugs and improvements as `GitHub issues <https://github.com/dreamiurg/django-fab-templates/issues>`_ or send them to dmitry.guyvoronsky@gmail.com.
 
 Quick Start
 ===========
 
-Here is how to create new Django project (mysql+south+html5boilerplate) that supports deployment to vagrant box. Install everything::
+Here is quick primer on creation of new Django project (mysql+south+html5boilerplate) that supports deployment to vagrant-managed virtual box.
+
+First, install everything::
 
     $ pip install django-fab-templates
     $ gem install vagrant
     $ vagrant box add base http://files.vagrantup.com/lucid32.box
     
-Create new Django project, boot vagrant box and configure it::
+Then create new Django project, boot and configure vagrant box::
 
     $ paster create -t vagrant_project my_project
     $ cd my_project
     $ vagrant up
 
-Set up your project on virtual vagrant box and test it::
+Finally set up your project on virtual vagrant box and test it::
 
     $ fab vagrant setup
     $ curl -I http://localhost:8080/

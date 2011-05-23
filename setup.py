@@ -1,11 +1,15 @@
 from setuptools import setup, find_packages
 import sys, os
 
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+    
 version = '0.1.1'
 
 setup(name = 'django-fab-templates',
       version = version,
       description = "Django project templates that support fabric-style deployment (vagrant+ubuntu, webfaction)",
+      long_description=read('README.rst'),
       classifiers = [
         "Programming Language :: Python",
         "Development Status :: 3 - Alpha",
@@ -21,7 +25,7 @@ setup(name = 'django-fab-templates',
                   'project', 'html5', 'boilerplate', 'vm', 'virtualbox', 'paster'],
       author = 'Dmitry Guyvoronsky',
       author_email = 'dmitry.guyvoronsky@gmail.com',
-      url = '',
+      url = 'https://github.com/dreamiurg/django-fab-templates',
       license = 'MIT',
       packages = find_packages('src'),
       package_dir = {'':'src'},
@@ -39,3 +43,4 @@ setup(name = 'django-fab-templates',
       vagrant_project = django_fab_templates.pastertemplates:VagrantTemplate
       """,
       )
+
