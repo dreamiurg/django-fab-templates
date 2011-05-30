@@ -1,3 +1,10 @@
+Release 0.1.2
+=============
+
+* Added: fab command ``wsgi_restart`` to gently restart mod_wsgi by touching its config file
+* Fixed #1: ``fab vagrant migrate`` now processes first migration too
+
+
 Release 0.1.1
 =============
 

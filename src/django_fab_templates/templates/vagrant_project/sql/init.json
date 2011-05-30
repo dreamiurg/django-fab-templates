@@ -98,15 +98,6 @@
   }, 
   {
     "fields": {
-      "app_name": "common", 
-      "applied": "2011-04-12 23:10:03", 
-      "migration": "0001_initial"
-    }, 
-    "model": "south.migrationhistory", 
-    "pk": 1
-  }, 
-  {
-    "fields": {
       "codename": "add_logentry", 
       "content_type": 8, 
       "name": "Can add log entry"

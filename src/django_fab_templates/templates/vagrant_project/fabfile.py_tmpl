@@ -175,7 +175,6 @@ def populate_database():
     require('settings', provided_by=[vagrant])
     
     virtualenv('FLAVOR=%(settings)s %(python)s %(code_path)s/manage.py syncdb --noinput' % env)
-    virtualenv('FLAVOR=%(settings)s %(python)s %(code_path)s/manage.py migrate common' % env)
     virtualenv('FLAVOR=%(settings)s %(python)s %(code_path)s/manage.py loaddata %(repo_path)s/sql/init.json' % env)
 
 
@@ -200,6 +199,16 @@ def dummy():
     require('settings', provided_by=[vagrant])
     run('uname -a && hostname && pwd')
 
+
+def wsgi_restart():
+    """
+    Gently restarts mod_wsgi by touching it's config
+    """
+    print(_yellow('>>> starting %s()' % _fn()))
+    require('settings', provided_by=[vagrant])
+    
+    if env.settings == 'vagrant':
+      run('touch /etc/apache2/sites-available/%(project_name)s.wsgi' % env)
 
 def apache_restart():
     """
@@ -230,8 +239,6 @@ def apache_stop():
 
     run(env.cmd_apache_start)
 
-
-   
     
 def setup_virtualenv():
     """
