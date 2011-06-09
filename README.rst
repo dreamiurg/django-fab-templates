@@ -67,7 +67,7 @@ This project template simplifies Django project development and testing on vagra
     `Vagrant`_ is an amazing tool for managing virtual machines via a simple to use command line interface. With a simple ``vagrant up`` you can be working in a clean environment based on a standard template. You will need to install vagrant, download ``lucid32`` box and boot up vagrant by running::
     
     $ gem install vagrant
-    $ vagrant box add base http://files.vagrantup.com/lucid32.box
+    $ vagrant box add lucid32 http://files.vagrantup.com/lucid32.box
     $ vagrant init
     $ vagrant up
     
