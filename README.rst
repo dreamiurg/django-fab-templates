@@ -16,7 +16,7 @@ First, install everything::
 
     $ pip install django-fab-templates
     $ gem install vagrant
-    $ vagrant box add base http://files.vagrantup.com/lucid32.box
+    $ vagrant box add lucid32 http://files.vagrantup.com/lucid32.box
     
 Then create new Django project, boot and configure vagrant box::
 
