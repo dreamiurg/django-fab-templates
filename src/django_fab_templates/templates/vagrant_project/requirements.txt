@@ -1,4 +1,4 @@
-Django==1.11.23
+Django==1.11.28
 South==0.7.3
 distribute==0.6.14
 django-annoying==0.7.6
